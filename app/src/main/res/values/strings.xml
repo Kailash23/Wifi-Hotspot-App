@@ -3,4 +3,10 @@
     <string name="enable">Enable Hotspot</string>
     <string name="disable">Disable Hotspot</string>
     <string name="heading">Hotspot Name : </string>
+    <string name="disable_text">DISABLE</string>
+    <string name="wifi_on">WiFi Hotspot is ON!</string>
+    <string name="enable_text">ENABLE</string>
+    <string name="wifi_off">WiFi Hotspot is OFF!</string>
+    <string name="default_password">12345678</string>
+    <string name="wifi_hotspot_text">Wi-Fi Hotspot</string>
 </resources>

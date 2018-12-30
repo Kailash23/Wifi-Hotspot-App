@@ -33,33 +33,33 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        enableHotspot = (Button) findViewById(R.id.enableHotspot);
+        enableHotspot = findViewById(R.id.enableHotspot);
         enableHotspot.setOnClickListener(this);
 
-        hotspotNameText = (EditText) findViewById(R.id.hotspotName);
-        passwordText = (EditText) findViewById(R.id.passwordId);
+        hotspotNameText = findViewById(R.id.hotspotName);
+        passwordText = findViewById(R.id.passwordId);
 
-        status = (TextView) findViewById(R.id.status);
+        status = findViewById(R.id.status);
 
         aBoolean = OnOfHotspot.isApOn(this);
 
         if (aBoolean) {
-            enableHotspot.setText("DISABLE");
-            status.setText("WiFi Hotspot is ON!");
+            enableHotspot.setText(R.string.disable_text);
+            status.setText(R.string.wifi_on);
         } else {
-            enableHotspot.setText("ENABLE");
-            status.setText("WiFi Hotspot is OFF!");
+            enableHotspot.setText(R.string.enable_text);
+            status.setText(R.string.wifi_off);
         }
 
-        textInputLayout = (TextInputLayout) findViewById(R.id.jugger);
+        textInputLayout = findViewById(R.id.jugger);
 
-        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner);
         String[] encryption = {"Open", "WPA-PSK"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, encryption);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, encryption);
         spinner.setAdapter(adapter);
 
-        passwordText.setText("12345678");
-        hotspotNameText.setText("Wi-Fi Hotspot");
+        passwordText.setText(R.string.default_password);
+        hotspotNameText.setText(R.string.wifi_hotspot_text);
         writePermission();
 
     }
@@ -116,8 +116,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            toggle.setText("ENABLE");
-            status.setText("WiFi Hotspot is OFF!");
+            toggle.setText(R.string.enable_text);
+            status.setText(R.string.wifi_off);
 
         } else if (buttonText.equals("ENABLE")) {
             try {
@@ -130,8 +130,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         OnOfHotspot.getApConfiguration(this);
                         OnOfHotspot.configApState(this, true);
 
-                        toggle.setText("DISABLE");
-                        status.setText("WiFi Hotspot is ON!");
+                        toggle.setText(R.string.disable_text);
+                        status.setText(R.string.wifi_on);
                     } else {
                         passwordText.setError("between 8 and 15 characters");
                     }
